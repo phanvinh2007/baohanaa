@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Các nước ASEAN</title>
+    <style>
+      body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://i.pinimg.com/736x/a7/84/e8/a784e8f39f3a8504ba7449f3eda76174.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            animation: backgroundAnimation 10s infinite alternate;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background-color: #f4f4f4; }
+            25% { background-color: #ffcccc; }
+            50% { background-color: #d0f0c0; }
+            75% { background-color: #cce7ff; }
+            100% { background-color: #f4f4f4; }
+        }
+
+        header {
+             background: linear-gradient(45deg, #4CAF50, #008CBA, #FFD700);
+    background-size: 300% 300%;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 10px;
+    animation: headerAnimation 10s infinite alternate;
+        }
+        
+        @keyframes headerAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .country-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .country-list button {
+            padding: 10px 20px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            background: linear-gradient(45deg, #008CBA, #4CAF50);
+            transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s;
+        }
+
+        .country-list button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            background-color: #ffcc00;
+        }
+
+        .country-list button:focus {
+            background-color: #ff5722;
+            color: white;
+            transform: scale(1.15);
+            box-shadow: 0 0 20px rgba(255, 87, 34, 0.6);
+        }
+
+        .country-info {
+              margin-top: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.4); 
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.5s ease-in-out, glow 1.5s infinite alternate;
+    backdrop-filter: blur(20px); 
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 10px #4CAF50; }
+            100% { box-shadow: 0 0 20px #4CAF50, 0 0 30px #4CAF50; }
+        }
+
+        .country-image {
+            width: 300px;
+            height: auto;
+            margin-top: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Các nước thuộc ASEAN</h1>
+    </header>
+    <main>
+        <div class="country-list">
+            <button onclick="showInfo('Việt Nam')">Việt Nam</button>
+            <button onclick="showInfo('Thailand')">Thái Lan</button>
+            <button onclick="showInfo('Indonesia')">Indonesia</button>
+            <button onclick="showInfo('Malaysia')">Malaysia</button>
+            <button onclick="showInfo('Philippines')">Philippines</button>
+            <button onclick="showInfo('Singapore')">Singapore</button>
+            <button onclick="showInfo('Myanmar')">Myanmar</button>
+            <button onclick="showInfo('Cambodia')">Campuchia</button>
+            <button onclick="showInfo('Laos')">Lào</button>
+            <button onclick="showInfo('Brunei')">Brunei</button>
+        </div>
+        <div id="country-info" class="country-info">
+            <h2 id="country-name">Chọn một quốc gia để xem thông tin</h2>
+            <p id="country-details">Thông tin chi tiết sẽ hiển thị ở đây.</p>
+            <img id="country-image" class="country-image" src="" alt="">
+        </div>
+    </main>
+    <script>
+        function showInfo(country) {
+            const countryData = {
+                'Việt Nam': { details: 'Thủ đô: Hà Nội,Dân số: ~97 triệu người, Ngôn ngữ: Tiếng Việt.', image: 'https://flagcdn.com/w320/vn.png' },
+                'Thailand': { details: 'Thủ đô: Bangkok,Dân số: ~69 triệu người, Ngôn ngữ: Tiếng Thái.', image: 'https://flagcdn.com/w320/th.png' },
+                'Indonesia': { details: 'Thủ đô: Jakarta,Dân số: ~273 triệu người, Ngôn ngữ: Tiếng Indonesia.', image: 'https://flagcdn.com/w320/id.png' },
+                'Malaysia': { details: 'Thủ đô: Kuala Lumpur,Dân số: ~32 triệu người, Ngôn ngữ: Tiếng Malay.', image: 'https://flagcdn.com/w320/my.png' },
+                'Philippines': { details: 'Thủ đô: Manila, Dân số: ~109 triệu người, Ngôn ngữ: Tiếng Filipino.', image: 'https://flagcdn.com/w320/ph.png' },
+                'Singapore': { details: 'Thủ đô: Singapore, Dân số: ~5.7 triệu người, Ngôn ngữ: Tiếng Anh, Tiếng Malay, Tiếng Hoa, Tiếng Tamil.', image: 'https://flagcdn.com/w320/sg.png' },
+                'Myanmar': { details: 'Thủ đô: Naypyidaw, Dân số: ~54 triệu người, Ngôn ngữ: Tiếng Myanmar.', image: 'https://flagcdn.com/w320/mm.png' },
+                'Cambodia': { details: 'Thủ đô: Phnom Penh, Dân số: ~16 triệu người, Ngôn ngữ: Tiếng Khmer.', image: 'https://flagcdn.com/w320/kh.png' },
+                'Laos': { details: 'Thủ đô: Viêng Chăn, Dân số: ~7 triệu người, Ngôn ngữ: Tiếng Lào.', image: 'https://flagcdn.com/w320/la.png' },
+                'Brunei': { details: 'Thủ đô: Bandar Seri Begawan, Dân số: ~0.5 triệu người, Ngôn ngữ: Tiếng Malay.', image: 'https://flagcdn.com/w320/bn.png' }
+            };
+            document.getElementById('country-name').innerText = country;
+            document.getElementById('country-details').innerText = countryData[country].details;
+            document.getElementById('country-image').src = countryData[country].image;
+            document.getElementById('country-image').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
